@@ -203,7 +203,6 @@ $('#originalPwdBtn').click(()=>{
 $('#updatePwdBtn').click(()=>{
     $('#updatePwdBtn').addClass('d-none')
     $('#updatePwdInput').addClass('d-none')
-    $('#updatePwdInput').val('')
     let url = "http://127.0.0.1:5000/auth/update"
     let request = {
         username: userInfo.username,
@@ -224,6 +223,7 @@ $('#updatePwdBtn').click(()=>{
         else{
             $('#sucessUpdatePwd').removeClass('d-none')
         }
+        $('#updatePwdInput').val('')
     }).catch(err=>consoel.log(err))
 })
 
@@ -231,12 +231,14 @@ $('#failUpdatePwd').click(()=>{
     $('#failUpdatePwd').addClass('d-none')
     $('#originalPwdBtn').removeClass('d-none')
     $('#originalPwdInput').removeClass('d-none')
+    $('#updatePwdInput').val('')
 })
 
 $('#sucessUpdatePwd').click(()=>{
     $('#sucessUpdatePwd').addClass('d-none')
     $('#originalPwdBtn').removeClass('d-none')
     $('#originalPwdInput').removeClass('d-none')
+    $('#updatePwdInput').val('')
 })
 
 $('#updateToken').click(()=>{
